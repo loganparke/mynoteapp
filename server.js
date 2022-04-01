@@ -33,18 +33,18 @@ app.post('/api/notes', (req, res) => {
   res.json(note);
 });
 
-app.delete('/api/notes/:id', async (req, res) => {
-  const noteId = req.params.id;
-  console.log(noteId);
-  const deleted = notes.filter(x => x.id != noteId);
+// app.delete('/api/notes/:id', async (req, res) => {
+//   const noteId = req.params.id;
+//   console.log(noteId);
+//   const deleted = notes.filter(x => x.id != noteId);
   
-  await fs.writeFile(
-    path.join(__dirname, './db/db.json'),
-    JSON.stringify(deleted, null, 2)
-  );
-    //newNotes = notes.filter(x => x.id != noteId);
-    res.json(deleted);
-});
+//   await fs.writeFile(
+//     path.join(__dirname, './db/db.json'),
+//     JSON.stringify(deleted, null, 2)
+//   );
+//     //newNotes = notes.filter(x => x.id != noteId);
+//     res.json(deleted);
+// });
 
 app.listen(PORT, () => {
   console.log(`API server is now on port ${PORT}`);
